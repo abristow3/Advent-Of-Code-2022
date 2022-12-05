@@ -52,29 +52,3 @@ if __name__ == "__main__":
 
     file_path = "Day 1/Day_1_Answers.json"
     write_answers(1, highest_cals, top_three_total_calories, file_path)
-
-
-def part_two_rules(lines: list):
-    elf_player = Player()
-    our_player = Player()
-
-
-    for line in lines:
-        elf_move, my_move = line.split()
-        my_move = PartTwoRules(my_move).name
-
-        print(StaticRules[elf_move].value)
-
-        if my_move == PartTwoRules.DRAW.name:
-            elf_player.add_points(points_dict.get(StaticRules[elf_move].value), StaticRules.DRAW.value)
-            our_player.add_points(points_dict.get(StaticRules[elf_move].value), StaticRules.DRAW.value)
-
-        elif my_move == PartTwoRules.LOSE.name:
-            elf_player.add_points(points_dict.get(StaticRules[elf_move].value), StaticRules.WIN.value)
-            our_player.add_points(points_dict.get(StaticRules[elf_move].name),StaticRules.LOST.value)
-
-        elif my_move == PartTwoRules.WIN.name:
-            elf_player.add_points(points_dict.get(StaticRules[elf_move].value), StaticRules.LOST.value)
-            our_player.add_points(points_dict.get(StaticRules[elf_move].value),StaticRules.WIN.value)
-
-    return our_player.points
