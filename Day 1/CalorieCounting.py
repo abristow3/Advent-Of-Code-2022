@@ -1,4 +1,3 @@
-import json
 from HelperUtils import open_file, write_answers
 
 

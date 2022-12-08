@@ -8,7 +8,7 @@ def open_file(file: str):
     return lines
 
 
-def write_answers(day: int, part_one_ans, part_two_ans, file_path):
+def write_answers(day: int, part_one_ans=None, part_two_ans=None, file_path=None):
     answers = {f"Day {day}": {"Part 1": part_one_ans, "Part 2": part_two_ans}}
 
     with open(file_path, "w") as outfile:
